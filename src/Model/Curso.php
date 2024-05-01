@@ -2,9 +2,10 @@
 
 namespace Alura\Solid\Model;
 
+use Alura\Solid\Model\Interfaces\Assistivel;
 use Alura\Solid\Model\Interfaces\Pontuavel;
 
-class Curso implements Pontuavel
+class Curso implements Pontuavel,Assistivel
 {
     private $nome;
     private $videos;
@@ -42,7 +43,7 @@ class Curso implements Pontuavel
         return 100;
     }
 
-    public function assistir()
+    public function assistir(): void
     {
         foreach ($this->recuperarVideos() as $video) {
             $video->assistir();
